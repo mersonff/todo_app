@@ -1,21 +1,26 @@
-<h1> Listing all Todos</h1>
+
+<h1 class="h1_titulo"> Listing all Todos</h1>
 
 <p>
-  <%= link_to "Create a todo", new_todo_path %>
+  <%= link_to "Create a todo", new_todo_path, class: "btn btn-primary" %>
 </p>
 
-<table>
-  <tr>
-    <th> Name </th>
-    <th> Description </th>
-  </tr>
-  <% @todos.each do |todo| %>
-    <tr>
-      <td> <%= todo.name %> </td>
-      <td> <%= todo.description %> </td>
-      <td> <%= link_to "Edit", edit_todo_path(todo) %> </td>
-      <td> <%= link_to "Show", todo_path(todo) %> </td>
-      <td> <%= link_to "Delete", todo_path(todo), method: :delete, data: {confirm: "Are you sure?"} %> </td>
-    </tr>
-  <% end %>
-</table>
+<div class="row">
+  <div class="col-sm-12">
+    <table class="table">
+      <tr>
+        <th> Name </th>
+        <th> Description </th>
+      </tr>
+      <% @todos.each do |todo| %>
+        <tr>
+          <td> <%= todo.name %> </td>
+          <td> <%= todo.description %> </td>
+          <td> <%= link_to "Edit", edit_todo_path(todo) %> </td>
+          <td> <%= link_to "Show", todo_path(todo) %> </td>
+          <td> <%= link_to "Delete", todo_path(todo), method: :delete, data: {confirm: "Are you sure?"} %> </td>
+        </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
